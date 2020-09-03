@@ -1,9 +1,26 @@
 .formControl{
-    width: 30%;
-    margin-bottom: 30px !important;
-    margin-top: 30px !important;
+    margin-bottom: 10px !important;
+    margin-top: 10px !important;
+    margin-right:10px !important;
+    border-radius: 30px !important;
+    background: linear-gradient(145deg, #ffffff)!important;
+    box-shadow: 13px 13px 26px #c2c2c2, 
+    -13px -13px 26px #ffffff !important;
+    align-items: flex-end;
+    margin: 0px auto;
+    min-width: 120px;
+    border: none !important;
+    padding:10px;
+    position: absolute;
 }
-
+.formPosition ::before{
+    border:none !important
+}
+.formPosition{
+    width: 100%;
+    align-items: flex-end;
+    border: none !important;
+}
 @media (max-width: 770px){
     
     .formControl{

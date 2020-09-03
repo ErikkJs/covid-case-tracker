@@ -1,26 +1,62 @@
-.body{
-    background-color: mintcream;
+html ,body, #root {
+    background-color: white;
+    margin: 0 0!important;
+    padding: 0 0 !important;
 }
 
-.container{
+html, body, #app, #app>div {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+
+.container {
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    padding: 40px;
 }
 
-.bannerImage{
+
+
+.cardInsights {
+    grid-row: span 2;
+}
+
+.countryPicker {
+    margin: 0 auto;
+}
+
+.countrySection{
+    background-color: #F5F2F0;
+}
+.insights {
+    border: 1px solid black;
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 225px auto auto;
+    grid-template-rows: auto auto;
+}
+
+.bannerImage {
     width: 350px;
     margin-top: 50px;
     margin-bottom: 50px;
 }
 
-@media(max-width:770px){
-    .container{
+@media(max-width:770px) {
+    .container {
         margin: 0 10%;
     }
-    .image{
+
+    .image {
         width: 100%;
     }
+}
+
+.countrySelectorSection{
+    margin: 5px;
+  
 }

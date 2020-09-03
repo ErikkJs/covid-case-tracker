@@ -1,18 +1,28 @@
 import React from "react";
-import { fetchData } from "./api";
+import { fetchData, fetchSummary } from "./api";
 import styles from "./App.module.css";
-import { Cards, Chart, CountryPicker } from "./components";
-
-import coronaImage from './images/csGod.png'
+import {
+  Cards,
+  Chart,
+  CountryPicker,
+  Header,
+  ChangesSummary,
+} from "./components";
+import { Container, Grid } from "@material-ui/core";
 
 class App extends React.Component {
   state = {
     data: {},
-    country: '',
+    country: "",
+    summary: {},
   };
   async componentDidMount() {
-    const fetchedData = await fetchData();
-    this.setState({ data: fetchedData });
+    let fetechedData = fetchData();
+    let fetechedSummary = fetchSummary();
+    this.setState({
+      data: await fetechedData,
+      summary: await fetechedSummary,
+    });
   }
   handleCountryChange = async (country) => {
     // fetch the needed data
@@ -21,12 +31,40 @@ class App extends React.Component {
     this.setState({ data: fetchedData, country: country });
   };
   render() {
-    const { data, country } = this.state;
+    const { data, country, summary } = this.state;
     return (
-      <div className={styles.container}>
-        <Cards data={data} />
-        <CountryPicker handleCountryChange={this.handleCountryChange} />
-        <Chart data = {data} country={country}/>
+      <div>
+        <Container disableGutters={true} maxWidth={false}>
+          <Grid container spacing={0}>
+            <Grid item md={12} xs={12}>
+              <Header></Header>
+            </Grid>
+            <Grid item md={12} xs={12}>
+              <div className={styles.countrySelectorSection}>
+                <CountryPicker handleCountryChange={this.handleCountryChange} />
+              </div>
+            </Grid>
+          </Grid>
+        </Container>
+        <Container maxWidth={false}>
+          <Grid container spacing={4} alignItems="center" direction="row">
+            <Grid item md={3} xs={12}>
+              <Cards data={data} />
+            </Grid>
+            <Grid
+              container
+              md={6}
+              xs={12}
+              spacing={3}
+              direction="column"
+              alignItems="center"
+              justify="space-between"
+            >
+                <ChangesSummary data={summary}></ChangesSummary>
+                <Chart  data={data} country={country} />
+            </Grid>
+          </Grid>
+        </Container>
       </div>
     );
   }

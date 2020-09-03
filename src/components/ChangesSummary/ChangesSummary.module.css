@@ -1,5 +1,5 @@
 .container{
-    margin: 50px 0;
+    display: flex;
 }
 
 .card{
@@ -9,16 +9,15 @@
     box-shadow: 13px 13px 26px #c2c2c2, 
     -13px -13px 26px #ffffff !important;
     display: flex;
-    height: 40px;
+    height: 100px;
     justify-content: center;
-    width: 300px;
+    width: 250px;
     padding: 10px;
-    margin: 10px;
+    margin: 15px;
 }
 .whiteBackground{
     background: white !important;
 }
-
 
 .infected{
     color:  rgba(0,0,255,0.8) !important;
